@@ -3,6 +3,7 @@ import { AlumnosModule } from './alumnos/alumnos.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GradosAcademicosModule } from './grados-academicos/grados-academicos.module';
+import { ConceptosPagosModule } from './conceptos-pagos/conceptos-pagos.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { GradosAcademicosModule } from './grados-academicos/grados-academicos.mo
     }),
     AlumnosModule,
     GradosAcademicosModule,
+    ConceptosPagosModule,
   ],
   controllers: [],
   providers: [],
