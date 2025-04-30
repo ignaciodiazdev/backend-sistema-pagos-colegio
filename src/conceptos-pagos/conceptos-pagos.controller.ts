@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, HttpCode, HttpStatus } from '@nestjs/common';
 import { ConceptosPagosService } from './conceptos-pagos.service';
 import { CreateConceptoPagoDto } from './dto/create-concepto-pago.dto';
 import { UpdateConceptoPagoDto } from './dto/update-concepto-pago.dto';
@@ -8,6 +8,7 @@ export class ConceptosPagosController {
   constructor(private readonly conceptosPagosService: ConceptosPagosService) {}
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() createConceptoPagoDto: CreateConceptoPagoDto) {
     return this.conceptosPagosService.create(createConceptoPagoDto);
   }
@@ -28,6 +29,7 @@ export class ConceptosPagosController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.conceptosPagosService.remove(id);
   }

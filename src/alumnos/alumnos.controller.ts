@@ -14,25 +14,21 @@ export class AlumnosController {
   }
 
   @Get()
-  @HttpCode(HttpStatus.OK)
   findAll() {
     return this.alumnosService.findAll();
   }
 
   @Get('buscar')
-  @HttpCode(HttpStatus.OK)
   async findByName(@Query('nombre') nombre: string) {
     return this.alumnosService.findByName(nombre);
   }
   
   @Get(':id')
-  @HttpCode(HttpStatus.OK)
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.alumnosService.findOne(id);
   }
 
   @Patch(':id')
-  @HttpCode(HttpStatus.OK)
   update(@Param('id', ParseUUIDPipe) id: string, @Body() updateAlumnoDto: UpdateAlumnoDto) {
     return this.alumnosService.update(id, updateAlumnoDto);
   }

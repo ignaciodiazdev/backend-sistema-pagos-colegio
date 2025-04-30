@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, Query, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, Query, ValidationPipe, HttpCode, HttpStatus } from '@nestjs/common';
 import { GradosAcademicosService } from './grados-academicos.service';
 import { CreateGradoAcademicoDto } from './dto/create-grado-academico.dto';
 import { UpdateGradoAcademicoDto } from './dto/update-grado-academico.dto';
@@ -9,6 +9,7 @@ export class GradosAcademicosController {
   constructor(private readonly gradosAcademicosService: GradosAcademicosService) {}
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() createGradoAcademicoDto: CreateGradoAcademicoDto) {
     return this.gradosAcademicosService.create(createGradoAcademicoDto);
   }
@@ -34,6 +35,7 @@ export class GradosAcademicosController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.gradosAcademicosService.remove(id);
   }
