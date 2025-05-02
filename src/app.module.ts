@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GradosAcademicosModule } from './grados-academicos/grados-academicos.module';
 import { ConceptosPagosModule } from './conceptos-pagos/conceptos-pagos.module';
 import { MetodosPagosModule } from './metodos-pagos/metodos-pagos.module';
+import { AniosAcademicosModule } from './anios-academicos/anios-academicos.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { MetodosPagosModule } from './metodos-pagos/metodos-pagos.module';
     GradosAcademicosModule,
     ConceptosPagosModule,
     MetodosPagosModule,
+    AniosAcademicosModule,
   ],
   controllers: [],
   providers: [],
